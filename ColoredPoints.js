@@ -78,13 +78,16 @@ let g_selectedSize = 5;
 let g_selectedType = POINT;
 let g_selectedSegments = 8;
 let g_selectedOpacity = 1.0;
+  // reference image for drawing
+  const img = document.getElementById('bee');
+  img.style.display = 'none';
 
 function addActionsForHtmlUI(){
   // button events (shape type)
   document.getElementById('green').onclick = function() { g_selectedColor = [0.0, 1.0, 0.0, 1.0];};
   document.getElementById('red').onclick = function() {g_selectedColor = [1.0,0.0,0.0,1.0];};
-  document.getElementById('clearButton').onclick = function() {g_shapesList = []; renderAllShapes();}
-  document.getElementById('beeButton').onclick = function() { drawBee();};
+  document.getElementById('clearButton').onclick = function() {g_shapesList = []; renderAllShapes(); img.style.display = 'none';};
+  document.getElementById('beeButton').onclick = function() { drawBee(); img.style.display = 'block';};
 
   document.getElementById('pointButton').onclick = function() {g_selectedType = POINT};
   document.getElementById('triangleButton').onclick = function() {g_selectedType = TRIANGLE};
